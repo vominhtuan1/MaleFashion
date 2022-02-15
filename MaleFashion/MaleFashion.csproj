@@ -246,7 +246,7 @@
     <Content Include="img\product\QUANJOGGERTUIDAP-hdd.png" />
     <Content Include="img\product\QUANKAKISLIMFIT-2.jpg" />
     <Content Include="img\product\QUANKAKISLIMFIT-3.jpg" />
-    <Content Include="img\product\QUANKAKISLIMFIT-hdd.jpg.jpg" />
+    <Content Include="img\product\QUANKAKISLIMFIT-hdd.jpg" />
     <Content Include="img\product\QUANSHORTCAROXEPLY-2.png" />
     <Content Include="img\product\QUANSHORTCAROXEPLY-3.png" />
     <Content Include="img\product\QUANSHORTCAROXEPLY-hdd.png" />
@@ -295,6 +295,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Database\LoaiSanPham.cs" />
     <Compile Include="App_Code\Database\SanPham.cs" />
     <Compile Include="App_Code\Database\SQLDatabase.cs" />
     <Compile Include="cms\user\SanPham\ChiTietSanPham.ascx.cs">

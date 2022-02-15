@@ -24,9 +24,18 @@ namespace MaleFashion.cms.user.Home
             dt = MaleFashion.App_Code.Database.SanPham.ThongTin_RanDom_Sp_Ten_GiaBan_TrangThai_DanhGia_HinhAnh();
             if(dt.Rows.Count > 0)
             {
+                string a = "";
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ltrSanPham.Text += @"<div class='col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals'>
+                    if(i % 2 == 0)
+                    {
+                        a = "new-arrivals";
+                    }
+                    else
+                    {
+                        a = "hot-sales";
+                    }
+                    ltrSanPham.Text += @"<div class='col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix "+ a +@"'>
                 <div class='product__item'>
                     <div class='product__item__pic set-bg' data-setbg='img/product/" + dt.Rows[i]["hinhanh"] + @"'>
                              <span class='label'>New</span>
