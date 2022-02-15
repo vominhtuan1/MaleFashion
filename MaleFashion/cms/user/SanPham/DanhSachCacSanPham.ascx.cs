@@ -16,6 +16,7 @@ namespace MaleFashion.cms.user.SanPham
         private string giadau = "";
         private string giacuoi = "";
         private string tranghientai = "";
+        private string sapxep = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["loaispID"] != null)
@@ -34,6 +35,10 @@ namespace MaleFashion.cms.user.SanPham
             {
                 tranghientai = Request.QueryString["tranghientai"];
             }
+            if (Request.QueryString["sapxep"] != null)
+            {
+                sapxep = Request.QueryString["sapxep"];
+            }
             if (!IsPostBack)
             {
                 LayLoaiSanPham();
@@ -46,32 +51,91 @@ namespace MaleFashion.cms.user.SanPham
 
         private void LaySelect()
         {
-
+            if (sapxep == "ASC" || sapxep == "")
+            {
+                ltrSelection.Text = @"
+                    <select>
+                        <option>thấp đến cao</option>
+                        <option>cao xuống thấp</option>
+                    </select>";
+            }
+            else
+            {
+                ltrSelection.Text = @"
+                    <select>
+                        <option>cao xuống thấp</option>
+                        <option>thấp đến cao</option>
+                    </select>";
+            }
         }
 
         private void LayFilterPrice()
         {
+            
             string link = "/Default.aspx?modul=SanPham";
             if (loaispID != "")
             {
                 link += "&loaispID=" + loaispID;
             }
-            ltrFilterPrice.Text += @"
+            if (sapxep != "")
+            {
+                link += "&sapxep=" + sapxep;
+            }
+            
+            if(giadau == "")
+            {
+                ltrFilterPrice.Text += @"
                 <li><a href='" + link + @"&giadau=0&giacuoi=200000'>0 - 200.000đ</a></li>
                 <li><a href='" + link + @"&giadau=200000&giacuoi=300000'>200.000đ - 300.000đ</a></li>
                 <li><a href='" + link + @"&giadau=300000&giacuoi=400000'>300.000đ - 400.000đ</a></li>
                 <li><a href='" + link + @"&giadau=400000&giacuoi=500000'>400.000đ - 500.000đ</a></li>
                 ";
+            } else if( giadau == "0")
+            {
+                ltrFilterPrice.Text += @"
+                <li><a href='" + link + @"&giadau=0&giacuoi=200000' style='color:black'>0 - 200.000đ</a></li>
+                <li><a href='" + link + @"&giadau=200000&giacuoi=300000'>200.000đ - 300.000đ</a></li>
+                <li><a href='" + link + @"&giadau=300000&giacuoi=400000'>300.000đ - 400.000đ</a></li>
+                <li><a href='" + link + @"&giadau=400000&giacuoi=500000'>400.000đ - 500.000đ</a></li>
+                ";
+            } else if(giadau == "200000")
+            {
+                ltrFilterPrice.Text += @"
+                <li><a href='" + link + @"&giadau=0&giacuoi=200000' >0 - 200.000đ</a></li>
+                <li><a href='" + link + @"&giadau=200000&giacuoi=300000' style='color:black'>200.000đ - 300.000đ</a></li>
+                <li><a href='" + link + @"&giadau=300000&giacuoi=400000'>300.000đ - 400.000đ</a></li>
+                <li><a href='" + link + @"&giadau=400000&giacuoi=500000'>400.000đ - 500.000đ</a></li>
+                ";
+            } else if (giadau == "300000")
+            {
+                ltrFilterPrice.Text += @"
+                <li><a href='" + link + @"&giadau=0&giacuoi=200000' >0 - 200.000đ</a></li>
+                <li><a href='" + link + @"&giadau=200000&giacuoi=300000'>200.000đ - 300.000đ</a></li>
+                <li><a href='" + link + @"&giadau=300000&giacuoi=400000' style='color:black'>300.000đ - 400.000đ</a></li>
+                <li><a href='" + link + @"&giadau=400000&giacuoi=500000'>400.000đ - 500.000đ</a></li>
+                ";
+            }
+            else if (giadau == "400000")
+            {
+                ltrFilterPrice.Text += @"
+                <li><a href='" + link + @"&giadau=0&giacuoi=200000' >0 - 200.000đ</a></li>
+                <li><a href='" + link + @"&giadau=200000&giacuoi=300000'>200.000đ - 300.000đ</a></li>
+                <li><a href='" + link + @"&giadau=300000&giacuoi=400000'>300.000đ - 400.000đ</a></li>
+                <li><a href='" + link + @"&giadau=400000&giacuoi=500000' style='color:black'>400.000đ - 500.000đ</a></li>
+                ";
+            }
+
+
         }
 
         private void LaySanPham()
         {
             DataTable dt = new DataTable();
-            
+
 
             if (tranghientai == "")
             {
-                dt = MaleFashion.App_Code.Database.SanPham.ThongTin_Loc_SanPham_Paginate(loaispID, giadau, giacuoi, "1", "9", "");
+                dt = MaleFashion.App_Code.Database.SanPham.ThongTin_Loc_SanPham_Paginate(loaispID, giadau, giacuoi, "1", "9", sapxep);
             }
             else
             {
@@ -85,7 +149,7 @@ namespace MaleFashion.cms.user.SanPham
                 {
                     dendong = tudong + 8;
                 }
-                dt = MaleFashion.App_Code.Database.SanPham.ThongTin_Loc_SanPham_Paginate(loaispID, giadau, giacuoi, tudong.ToString(), dendong.ToString(), "");
+                dt = MaleFashion.App_Code.Database.SanPham.ThongTin_Loc_SanPham_Paginate(loaispID, giadau, giacuoi, tudong.ToString(), dendong.ToString(), sapxep);
             }
 
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -97,7 +161,7 @@ namespace MaleFashion.cms.user.SanPham
                             </div>
                             <div class='product__item__text'>
                                 <h6>" + dt.Rows[i]["ten"] + @"</h6>
-                                <a href='#' class='add-cart'>+ Add To Cart</a>
+                                <a href='#' class='add-cart'>+ Xem chi tiết</a>
                                 <div class='rating'>
                                     <i class='fa fa-star-o'></i>
                                     <i class='fa fa-star-o'></i>
@@ -131,6 +195,10 @@ namespace MaleFashion.cms.user.SanPham
             if (giadau != "" && giacuoi != "")
             {
                 link += "&giadau=" + giadau + "&giacuoi=" + giacuoi;
+            }
+            if (sapxep != "")
+            {
+                link += "&sapxep=" + sapxep;
             }
 
             for (int i = 0; i < sotrang; i++)
@@ -172,10 +240,21 @@ namespace MaleFashion.cms.user.SanPham
                 {
                     link += "&giadau=" + giadau + "&giacuoi=" + giacuoi;
                 }
+                if (sapxep != "")
+                {
+                    link += "&sapxep=" + sapxep;
+                }
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ltrCategories.Text += @"<li><a href='" + link + "&loaispID=" + dt.Rows[i]["loaisanphamID"] + @"'>" + dt.Rows[i]["tenloaisp"] + @"</a></li>";
+                    if (loaispID != "" && int.Parse(loaispID) == i + 1)
+                    {
+                        ltrCategories.Text += @"<li><a href='" + link + "&loaispID=" + dt.Rows[i]["loaisanphamID"] + @"' style='color:black'>" + dt.Rows[i]["tenloaisp"] + @"</a></li>";
+                    }
+                    else
+                    {
+                        ltrCategories.Text += @"<li><a href='" + link + "&loaispID=" + dt.Rows[i]["loaisanphamID"] + @"'>" + dt.Rows[i]["tenloaisp"] + @"</a></li>";
+                    }
                 }
             }
         }

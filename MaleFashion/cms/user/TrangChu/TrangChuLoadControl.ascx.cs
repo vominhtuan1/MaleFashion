@@ -42,7 +42,7 @@ namespace MaleFashion.cms.user.Home
                     </div>
                     <div class='product__item__text'>
                         <h6>" + dt.Rows[i]["ten"] + @"</h6>
-                        <a href='#' class='add-cart'>+ Add To Cart</a>
+                        <a href='#' class='add-cart'>+ Xem chi tiết</a>
                         <div class='rating'>
                             <i class='fa fa-star-o'></i>
                             <i class='fa fa-star-o'></i>

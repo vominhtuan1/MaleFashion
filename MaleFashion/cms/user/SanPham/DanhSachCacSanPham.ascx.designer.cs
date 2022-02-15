@@ -33,6 +33,15 @@ namespace MaleFashion.cms.user.SanPham
         protected global::System.Web.UI.WebControls.Literal ltrFilterPrice;
 
         /// <summary>
+        /// ltrSelection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrSelection;
+
+        /// <summary>
         /// ltrProducts control.
         /// </summary>
         /// <remarks>

@@ -57,18 +57,17 @@ namespace MaleFashion.App_Code.Database
             {
                 dieukien += @" and (giaban between " + giatu + " and " + giaden + ") ";
             }
+            
+
             string sql = @"
             select * from(
                 select ROW_NUMBER() OVER(
-                       ORDER BY ten) AS RowNum,ten, giaban, trangthai, danhgia, hinhanh
+                       ORDER BY giaban "+ order +@") AS RowNum,ten, giaban, trangthai, danhgia, hinhanh
                 from sanpham , hinhanh
                 where (hinhanh.hinhanh like '%hdd.jpg'or hinhanh.hinhanh like '%hdd.png') and sanpham.sanphamID = hinhanh.sanphamID "+ dieukien +@"
                 )
             as p where p.RowNum between "+ tuhang + @" and " + denhang + @"";
-            if(order != "")
-            {
-                sql += @"order by giaban" + order;
-            }
+            
             OleDbCommand cmd = new OleDbCommand(sql);
             cmd.CommandType = CommandType.Text;
             return SQLDatabase.GetData(cmd);
