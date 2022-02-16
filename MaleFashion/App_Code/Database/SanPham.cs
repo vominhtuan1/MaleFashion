@@ -62,9 +62,9 @@ namespace MaleFashion.App_Code.Database
             string sql = @"
             select * from(
                 select ROW_NUMBER() OVER(
-                       ORDER BY giaban "+ order +@") AS RowNum,ten, giaban, trangthai, danhgia, hinhanh
+                       ORDER BY giaban "+ order + @") AS RowNum,ten, giaban, trangthai, danhgia, hinhanh, sanpham.sanphamID
                 from sanpham , hinhanh
-                where (hinhanh.hinhanh like '%hdd.jpg'or hinhanh.hinhanh like '%hdd.png') and sanpham.sanphamID = hinhanh.sanphamID "+ dieukien +@"
+                where (hinhanh.hinhanh like '%hdd.jpg'or hinhanh.hinhanh like '%hdd.png') and sanpham.sanphamID = hinhanh.sanphamID " + dieukien +@"
                 )
             as p where p.RowNum between "+ tuhang + @" and " + denhang + @"";
             
