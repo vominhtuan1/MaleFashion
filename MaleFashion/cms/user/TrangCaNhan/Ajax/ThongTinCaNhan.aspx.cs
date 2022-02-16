@@ -21,7 +21,38 @@ namespace MaleFashion.cms.user.TrangCaNhan.Ajax
                 case "LuuThongTinCaNhan":
                     LuuThongTinCaNhan();
                     break;
+                case "DanhGiaSanPham":
+                    DanhGiaSanPham();
+                    break;
             }
+        }
+
+        private void DanhGiaSanPham()
+        {
+            string idKhachHang = "";
+            string idSanPham = "";
+            string star = "";
+            string binhluan = "";
+            if (Request.Params["idKhachHang"] != null)
+            {
+                idKhachHang = Request.Params["idKhachHang"];
+            }
+            if (Request.Params["idSanPham"] != null)
+            {
+                idSanPham = Request.Params["idSanPham"];
+            }
+            if (Request.Params["star"] != null)
+            {
+                star = Request.Params["star"];
+            }
+            if (Request.Params["binhluan"] != null)
+            {
+                binhluan = Request.Params["binhluan"];
+            }
+            MaleFashion.App_Code.Database.DanhGia.Them_DanhGia_SanPham(idSanPham, idKhachHang, star, binhluan);
+            MaleFashion.App_Code.Database.SanPham.CapNhap_Sao_ChoSanPham(idSanPham);
+            Response.Write("1");
+
         }
 
         private void LuuThongTinCaNhan()
