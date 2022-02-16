@@ -57,7 +57,7 @@
             <a href="#" class="search-switch">
                 <img src="img/icon/search.png" alt=""></a>
             <a href="#">
-                <img src="img/icon/heart.png" alt=""></a>
+                <img src="img/icon/user.png" alt="/Default.aspx?modul=TrangCaNhan"></a>
             <a href="#">
                 <img src="img/icon/cart.png" alt="">
                 <span>0</span></a>
@@ -130,8 +130,8 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch">
                             <img src="img/icon/search.png" alt=""></a>
-                        <a href="#">
-                            <img src="img/icon/heart.png" alt=""></a>
+                        <a href="/Default.aspx?modul=TrangCaNhan">
+                            <img src="img/icon/user.png" alt="Trang cá nhân"></a>
                         <a href="#">
                             <img src="img/icon/cart.png" alt="">
                             <span>0</span></a>

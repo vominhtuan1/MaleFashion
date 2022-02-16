@@ -110,6 +110,9 @@
     <Content Include="cms\user\SanPham\GioHang.ascx" />
     <Content Include="cms\user\SanPham\SanPhamLoadControl.ascx" />
     <Content Include="cms\user\SanPham\ThanhToan.ascx" />
+    <Content Include="cms\user\TrangCaNhan\Ajax\ThongTinCaNhan.aspx" />
+    <Content Include="cms\user\TrangCaNhan\ChiTietDonHangLoadControl.ascx" />
+    <Content Include="cms\user\TrangCaNhan\TrangCaNhaLoadControl.ascx" />
     <Content Include="cms\user\TrangChu\TrangChuLoadControl.ascx" />
     <Content Include="cms\user\UserLoadControl.ascx" />
     <Content Include="css\bootstrap.min.css" />
@@ -173,6 +176,7 @@
     <Content Include="img\icon\compare.png" />
     <Content Include="img\icon\heart.png" />
     <Content Include="img\icon\search.png" />
+    <Content Include="img\icon\user.png" />
     <Content Include="img\instagram\instagram-1.jpg" />
     <Content Include="img\instagram\instagram-2.jpg" />
     <Content Include="img\instagram\instagram-3.jpg" />
@@ -295,6 +299,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Database\KhachHang.cs" />
     <Compile Include="App_Code\Database\LoaiSanPham.cs" />
     <Compile Include="App_Code\Database\SanPham.cs" />
     <Compile Include="App_Code\Database\SQLDatabase.cs" />
@@ -332,6 +337,27 @@
     </Compile>
     <Compile Include="cms\user\SanPham\ThanhToan.ascx.designer.cs">
       <DependentUpon>ThanhToan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="cms\user\TrangCaNhan\Ajax\ThongTinCaNhan.aspx.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\user\TrangCaNhan\Ajax\ThongTinCaNhan.aspx.designer.cs">
+      <DependentUpon>ThongTinCaNhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cms\user\TrangCaNhan\ChiTietDonHangLoadControl.ascx.cs">
+      <DependentUpon>ChiTietDonHangLoadControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\user\TrangCaNhan\ChiTietDonHangLoadControl.ascx.designer.cs">
+      <DependentUpon>ChiTietDonHangLoadControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="cms\user\TrangCaNhan\TrangCaNhaLoadControl.ascx.cs">
+      <DependentUpon>TrangCaNhaLoadControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\user\TrangCaNhan\TrangCaNhaLoadControl.ascx.designer.cs">
+      <DependentUpon>TrangCaNhaLoadControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="cms\user\TrangChu\TrangChuLoadControl.ascx.cs">
       <DependentUpon>TrangChuLoadControl.ascx</DependentUpon>
