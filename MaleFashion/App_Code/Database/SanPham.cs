@@ -39,7 +39,22 @@ namespace MaleFashion.App_Code.Database
             cmd.CommandType = CommandType.Text;
             return SQLDatabase.GetData(cmd);
         }
+        public static DataTable Lay_Thong_Tin_San_Pham(string idsanpham)
+        {
+            OleDbCommand cmd = new OleDbCommand("Lay_Thong_Tin_San_Pham");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id",Int16.Parse(idsanpham));
+            return SQLDatabase.GetData(cmd);
 
+        }
+        public static DataTable Lay_Size_San_Pham(string idsanpham)
+        {
+            OleDbCommand cmd = new OleDbCommand("Lay_Size_San_Pham");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", Int16.Parse(idsanpham));
+            return SQLDatabase.GetData(cmd);
+
+        }
         /// <summary>
         /// lấy thông tin sản phẩm không có bộ lọc về giá và loại và phân trang
         /// </summary>

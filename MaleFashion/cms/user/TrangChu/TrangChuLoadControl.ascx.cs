@@ -35,11 +35,14 @@ namespace MaleFashion.cms.user.Home
                     {
                         a = "hot-sales";
                     }
-                    ltrSanPham.Text += @"<div class='col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix "+ a +@"'>
+                    ltrSanPham.Text += @"<div class='col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix "+ a + @"'>
                 <div class='product__item'>
-                    <div class='product__item__pic set-bg' data-setbg='img/product/" + dt.Rows[i]["hinhanh"] + @"'>
+                     <a href='/Default.aspx?modul=SanPham&modulphu=ChiTietSanPham&idSanPham=" + dt.Rows[i]["sanphamID"] + @"'>
+ <div class='product__item__pic set-bg' data-setbg='img/product/" + dt.Rows[i]["hinhanh"] + @"'>
                              <span class='label'>New</span>
                     </div>
+</a>
+                   
                     <div class='product__item__text'>
                         <h6>" + dt.Rows[i]["ten"] + @"</h6>
                         <a href='#' class='add-cart'>+ Xem chi tiết</a>
