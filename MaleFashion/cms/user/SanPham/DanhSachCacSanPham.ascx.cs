@@ -157,11 +157,13 @@ namespace MaleFashion.cms.user.SanPham
                 ltrProducts.Text += @"
                        <div class='col-lg-4 col-md-6 col-sm-6'>
                           <div class='product__item'>
-                            <div class='product__item__pic set-bg' data-setbg='img/product/" + dt.Rows[i]["hinhanh"] + @"'>
-                            </div>
+                            <a href='/Default.aspx?modul=SanPham&modulphu=ChiTietSanPham&idSanPham=" + dt.Rows[i]["sanphamID"] + @"'>
+                                <div class='product__item__pic set-bg' data-setbg='img/product/" + dt.Rows[i]["hinhanh"] + @"'>
+                                </div>
+                            </a>
                             <div class='product__item__text'>
                                 <h6>" + dt.Rows[i]["ten"] + @"</h6>
-                                <a href='/Default.aspx?modul=ChiTietSanPham&idSP=" + dt.Rows[i]["sanphamID"] + @"' class='add-cart'>+ Xem chi tiết</a>
+                                <a href='/Default.aspx?modul=ChiTietSanPham&idSanPham=" + dt.Rows[i]["sanphamID"] + @"' class='add-cart'>+ Xem chi tiết</a>
                                 <div class='rating'> ";
                                 ltrProducts.Text += HienThiSaoDanhGia(dt.Rows[i]["danhgia"]);
                 ltrProducts.Text += @"

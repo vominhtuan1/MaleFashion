@@ -44,6 +44,30 @@ namespace MaleFashion.cms.user.TrangCaNhan
                     <li>Thành tiền <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt.Rows[0]["tongtien"]) + @" đ</span></li>
                 ";
             }
+            else
+            {
+                DataTable dt4 = MaleFashion.App_Code.Database.GiamGiaDonHang.ThongTin_GiamGia_ChoDonHang_ByID(dt1.Rows[0]["giamgiaID"].ToString());
+                if (dt4.Rows[0]["tien"].ToString() != "")
+                {
+                    int thanhtien = int.Parse(dt.Rows[0]["tongtien"].ToString()) - int.Parse(dt4.Rows[0]["tien"].ToString());
+                    ltrTongTien.Text = @"
+                    <li>Tổng giá trị sản phẩm <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt.Rows[0]["tongtien"].ToString()) + @" đ</span></li>
+                    <li>Giảm giá <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt4.Rows[0]["tien"]) + @" đ</span></li>
+                    <li>Thành tiền <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(thanhtien) + @" đ</span></li>
+                ";
+                }
+                else
+                {
+                    int tongtien = int.Parse(dt.Rows[0]["tongtien"].ToString());
+                    int thanhtien = int.Parse(dt.Rows[0]["tongtien"].ToString()) * (100 - int.Parse(dt4.Rows[0]["phantram"].ToString())) / 100;
+                    int giamgia = tongtien - thanhtien;
+                    ltrTongTien.Text = @"
+                    <li>Tổng giá trị sản phẩm <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt.Rows[0]["tongtien"].ToString()) + @" đ</span></li>
+                    <li>Giảm giá <span>"+ MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(giamgia) + @" đ</span></li>
+                    <li>Thành tiền <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(thanhtien) + @" đ</span></li>
+                ";
+                }
+            }
         }
 
         private void LayThongTinDonHang()
@@ -68,16 +92,33 @@ namespace MaleFashion.cms.user.TrangCaNhan
                         </td>
                         <td class='cart__price'>" + dt.Rows[i]["soluong"] + @"</td>
                         <td class='cart__price'>" +
-                            MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(int.Parse(dt.Rows[i]["giaSP"].ToString()) * int.Parse(dt.Rows[i]["soluong"].ToString())) 
-                            + @" đ</td>
-                        <td class='cart__price'>
-                            <div class='continue__btn'>
-                                <a href='javascript:DanhGiaSanPham("+idKhachHang+@", "+ dt.Rows[i]["sanphamID"] + @")' style='cursor:pointer;padding: 10px 10px;text-transform: none;'>Đánh giá</a>
-                            </div>
-                        </td>
-                    </tr>
-                ";
+                            MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(int.Parse(dt.Rows[i]["giaSP"].ToString()) * int.Parse(dt.Rows[i]["soluong"].ToString()))
+                            + @" đ</td> ";
+
+
+                ltrSanPhamCuaDonHang.Text += CheckTrangThai(dt.Rows[0]["sanphamID"]);
+
+                ltrSanPhamCuaDonHang.Text += @" </tr>";
             }
+        }
+
+        public string CheckTrangThai(object sanphamid)
+        {
+            string result = "";
+            DataTable dt = MaleFashion.App_Code.Database.HoaDon.ThongTin_DonHang_ByIDHoaDon(idDonHang);
+            if(dt.Rows[0]["trangthai"].ToString() == "Đã giao hàng")
+            {
+                ltrCotDanhGia.Text = " <th></th> ";
+                result = @" <td class='cart__price'>
+                            <div class='continue__btn'>
+                                <a href='javascript:DanhGiaSanPham(" + idKhachHang + @", " + sanphamid + @")' style='cursor:pointer;padding: 10px 10px;text-transform: none;'>Đánh giá</a>
+                            </div>
+                        </td> ";
+            } else
+            {
+                ltrCotDanhGia.Text = "";
+            }
+            return result;
         }
 
         private void LayThongTinNguoiNhan()
