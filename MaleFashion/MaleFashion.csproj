@@ -300,12 +300,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Database\DanhGia.cs" />
+    <Compile Include="App_Code\Database\GiamGiaSP.cs" />
     <Compile Include="App_Code\Database\HinhAnh.cs" />
     <Compile Include="App_Code\Database\HoaDon.cs" />
     <Compile Include="App_Code\Database\KhachHang.cs" />
     <Compile Include="App_Code\Database\LoaiSanPham.cs" />
     <Compile Include="App_Code\Database\SanPham.cs" />
     <Compile Include="App_Code\Database\SQLDatabase.cs" />
+    <Compile Include="App_Code\FormatNumber.cs" />
     <Compile Include="cms\user\SanPham\ChiTietSanPham.ascx.cs">
       <DependentUpon>ChiTietSanPham.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
