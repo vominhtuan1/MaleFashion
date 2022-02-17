@@ -101,9 +101,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="filter__controls">
-                    <li class="active" data-filter="*">Best Sellers</li>
-                    <li data-filter=".new-arrivals">New Arrivals</li>
-                    <li data-filter=".hot-sales">Hot Sales</li>
+                    <li class="active" data-filter="*">Bán chạy</li>
+                    <li data-filter=".new-arrivals">Mới về</li>
+                    <li data-filter=".hot-sales">Giảm giá</li>
                 </ul>
             </div>
         </div>
