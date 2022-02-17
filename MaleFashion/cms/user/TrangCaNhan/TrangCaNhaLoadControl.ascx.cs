@@ -50,10 +50,10 @@ namespace MaleFashion.cms.user.TrangCaNhan
                     ltrDanhDachDonHang.Text += @"</span>
                                 </p>
                                 <p class='mb-0'>
-                                    Tổng hóa đơn: <b>" + dt3.Rows[0]["tongtien"] + @" đ</b> / Thành tiền: <b>"; 
+                                    Tổng hóa đơn: <b>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt3.Rows[0]["tongtien"]) + @" đ</b> / Thành tiền: <b>"; 
                     if(dt.Rows[i]["giamgiaID"].ToString() == "")
                     {
-                        ltrDanhDachDonHang.Text += dt3.Rows[0]["tongtien"].ToString();
+                        ltrDanhDachDonHang.Text += MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt3.Rows[0]["tongtien"]);
                     } else
                     {
                         //xử lý sau

@@ -35,7 +35,7 @@ namespace MaleFashion.cms.user.Home
                     {
                         a = "hot-sales";
                     }
-                    ltrSanPham.Text += @"<div class='col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix "+ a +@"'>
+                    ltrSanPham.Text += @"<div class='col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix " + a + @"'>
                 <div class='product__item'>
                     <div class='product__item__pic set-bg' data-setbg='img/product/" + dt.Rows[i]["hinhanh"] + @"'>
                              <span class='label'>New</span>
@@ -43,19 +43,32 @@ namespace MaleFashion.cms.user.Home
                     <div class='product__item__text'>
                         <h6>" + dt.Rows[i]["ten"] + @"</h6>
                         <a href='#' class='add-cart'>+ Xem chi tiết</a>
-                        <div class='rating'>
-                            <i class='fa fa-star-o'></i>
-                            <i class='fa fa-star-o'></i>
-                            <i class='fa fa-star-o'></i>
-                            <i class='fa fa-star-o'></i>
-                            <i class='fa fa-star-o'></i>
+                        <div class='rating'> ";
+                        ltrSanPham.Text += HienThiSaoDanhGia(dt.Rows[i]["danhgia"]);
+                        ltrSanPham.Text += @"
                         </div>
-                        <h5>" + dt.Rows[i]["giaban"] + @"</h5>
+                        <h5>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt.Rows[i]["giaban"]) + @" đ</h5>
                     </div>
                 </div>
             </div>";
                 }
             }
+        }
+        private string HienThiSaoDanhGia(object star)
+        {
+            string result = "";
+            int n = int.Parse(star.ToString());
+            for(int i = 1; i<=5; i++)
+            {
+                if(i <= n)
+                {
+                    result += @"<i class='fa fa-star yellowstar'></i> ";
+                } else
+                {
+                    result += @"<i class='fa fa-star-o'></i> ";
+                }
+            }
+            return result;
         }
     }
 }

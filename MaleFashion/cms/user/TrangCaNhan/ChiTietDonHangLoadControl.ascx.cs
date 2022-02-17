@@ -39,9 +39,9 @@ namespace MaleFashion.cms.user.TrangCaNhan
             if (dt1.Rows[0]["giamgiaID"].ToString() == "")
             {
                 ltrTongTien.Text = @"
-                    <li>Tổng giá trị sản phẩm <span>" + dt.Rows[0]["tongtien"] + @" đ</span></li>
+                    <li>Tổng giá trị sản phẩm <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt.Rows[0]["tongtien"].ToString()) + @" đ</span></li>
                     <li>Giảm giá <span>0 đ</span></li>
-                    <li>Thành tiền <span>" + dt.Rows[0]["tongtien"] + @" đ</span></li>
+                    <li>Thành tiền <span>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt.Rows[0]["tongtien"]) + @" đ</span></li>
                 ";
             }
         }
@@ -63,11 +63,13 @@ namespace MaleFashion.cms.user.TrangCaNhan
                             </div>
                             <div class='product__cart__item__text'>
                                 <h6>" + dt2.Rows[0]["ten"] + @"</h6>
-                                <h5>" + dt.Rows[i]["giaSP"] + @"</h5>
+                                <h5>" + MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(dt.Rows[i]["giaSP"]) + @" đ</h5>
                             </div>
                         </td>
                         <td class='cart__price'>" + dt.Rows[i]["soluong"] + @"</td>
-                        <td class='cart__price'>" + int.Parse(dt.Rows[i]["giaSP"].ToString()) * int.Parse(dt.Rows[i]["soluong"].ToString()) + @"</td>
+                        <td class='cart__price'>" +
+                            MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(int.Parse(dt.Rows[i]["giaSP"].ToString()) * int.Parse(dt.Rows[i]["soluong"].ToString())) 
+                            + @" đ</td>
                         <td class='cart__price'>
                             <div class='continue__btn'>
                                 <a href='javascript:DanhGiaSanPham("+idKhachHang+@", "+ dt.Rows[i]["sanphamID"] + @")' style='cursor:pointer;padding: 10px 10px;text-transform: none;'>Đánh giá</a>
