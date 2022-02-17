@@ -43,7 +43,7 @@ namespace MaleFashion.App_Code.Database
         {
             OleDbCommand cmd = new OleDbCommand("Lay_Thong_Tin_San_Pham");
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@id",Int16.Parse(idsanpham));
+            cmd.Parameters.AddWithValue("@id", Int16.Parse(idsanpham));
             return SQLDatabase.GetData(cmd);
 
         }
@@ -126,6 +126,24 @@ namespace MaleFashion.App_Code.Database
             OleDbCommand cmd = new OleDbCommand(sql);
             cmd.CommandType = CommandType.Text;
             SQLDatabase.ExecuteNoneQuery(cmd);
+        }
+        /// <summary>
+        /// Lấy 4 sản phẩm liên quan
+        /// </summary>
+        /// <param name="sanphamID"></param>
+        public static DataTable Lay_SanPham_LienQuan(string sanphamID, string loaisanphamID)
+        {
+            string sql = @"select top(4) * from sanpham where sanphamID <> " + sanphamID + " and loaisanphamID = " + loaisanphamID + "";
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            return SQLDatabase.GetData(cmd);
+        }
+        public static DataTable ThongTin_SanPham_ByID(string sanphamID)
+        {
+            string sql = @"select * from sanpham where sanphamID = " + sanphamID + "";
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            return SQLDatabase.GetData(cmd);
         }
     }
 }
