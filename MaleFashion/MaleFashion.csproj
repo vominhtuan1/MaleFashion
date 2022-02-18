@@ -104,6 +104,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Content Include="cms\user\DangNhap\DangNhap.ascx" />
+>>>>>>> Stashed changes
     <Content Include="cms\user\SanPham\ChiTietSanPham.ascx" />
     <Content Include="cms\user\SanPham\DanhSachCacSanPham.ascx" />
     <Content Include="cms\user\SanPham\GioHang.ascx" />
@@ -117,6 +121,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\elegant-icons.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\LoginCss.css" />
     <Content Include="css\magnific-popup.css" />
     <Content Include="css\nice-select.css" />
     <Content Include="css\owl.carousel.min.css" />
@@ -296,6 +301,7 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="js\LoginScript.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -309,7 +315,17 @@
     <Compile Include="App_Code\Database\LoaiSanPham.cs" />
     <Compile Include="App_Code\Database\SanPham.cs" />
     <Compile Include="App_Code\Database\SQLDatabase.cs" />
+<<<<<<< Updated upstream
     <Compile Include="App_Code\FormatNumber.cs" />
+=======
+    <Compile Include="cms\user\DangNhap\DangNhap.ascx.cs">
+      <DependentUpon>DangNhap.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\user\DangNhap\DangNhap.ascx.designer.cs">
+      <DependentUpon>DangNhap.ascx</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Compile Include="cms\user\SanPham\ChiTietSanPham.ascx.cs">
       <DependentUpon>ChiTietSanPham.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -435,8 +451,13 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
+<<<<<<< Updated upstream
+=======
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+>>>>>>> Stashed changes
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

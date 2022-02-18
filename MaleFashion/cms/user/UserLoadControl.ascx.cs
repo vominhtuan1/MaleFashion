@@ -37,7 +37,9 @@ namespace MaleFashion.cms.user
                 case "ChiTietSanPham":
                     plLoadControl.Controls.Add(LoadControl("SanPham/ChiTietSanPham.ascx"));
                     break;
-
+                case "DangNhap":
+                    plLoadControl.Controls.Add(LoadControl("DangNhap/DangNhap.ascx"));
+                    break;
                 default:
                     plLoadControl.Controls.Add(LoadControl("TrangChu/TrangChuLoadControl.ascx"));
                     break;
