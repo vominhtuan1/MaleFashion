@@ -286,6 +286,7 @@
     <Content Include="js\jquery.nice-select.min.js" />
     <Content Include="js\jquery.nicescroll.min.js" />
     <Content Include="js\jquery.slicknav.js" />
+    <Content Include="js\LetterAvatar.js" />
     <Content Include="js\main.js" />
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
@@ -300,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Database\DanhGia.cs" />
+    <Compile Include="App_Code\Database\GiamGiaDonHang.cs" />
     <Compile Include="App_Code\Database\GiamGiaSP.cs" />
     <Compile Include="App_Code\Database\HinhAnh.cs" />
     <Compile Include="App_Code\Database\HoaDon.cs" />

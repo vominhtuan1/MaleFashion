@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Web;
 
 namespace MaleFashion.App_Code.Database
 {
@@ -44,6 +42,28 @@ namespace MaleFashion.App_Code.Database
             OleDbCommand cmd = new OleDbCommand("Lay_Danh_Gia");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", Int16.Parse(sanphamID));
+        /// <summary>
+        /// Hàm đếm số bình luận của 1 sản phẩm
+        /// </summary>
+        /// <param name="sanphamID"></param>
+        /// <returns></returns>
+        public static DataTable Dem_So_BinhLuan_CuaMotSanPham(string sanphamID)
+        {
+            string sql = @"select count(*) as soluong from vote where sanphamID = " + sanphamID + "";
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            return SQLDatabase.GetData(cmd);
+        }
+        /// <summary>
+        /// Lấy danh sách bình luận của sản phẩm 
+        /// </summary>
+        /// <param name="sanphamID"></param>
+        /// <returns></returns>
+        public static DataTable DanhSach_BinhLuan_CuaSanPham_ByID(string sanphamID)
+        {
+            string sql = @"select * from vote where sanphamID = " + sanphamID + " order by ngaydanhgia DESC";
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
             return SQLDatabase.GetData(cmd);
         }
     }

@@ -3864,3 +3864,7 @@ ol {
 .yellowstar{
 	color : #f7941d !important;
 }
+
+.round {
+	border-radius: 50%;
+}
