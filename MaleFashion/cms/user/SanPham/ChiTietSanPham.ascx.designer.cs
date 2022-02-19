@@ -78,23 +78,12 @@ namespace MaleFashion.cms.user.SanPham
         protected global::System.Web.UI.WebControls.Label productName;
 
         /// <summary>
-        /// displayStar control.
         /// ltrSaoDanhGia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal displayStar;
-
-        /// <summary>
-        /// coutRating control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal coutRating;
         protected global::System.Web.UI.WebControls.Literal ltrSaoDanhGia;
 
         /// <summary>

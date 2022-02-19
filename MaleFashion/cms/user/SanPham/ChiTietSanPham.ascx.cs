@@ -36,7 +36,7 @@ namespace MaleFashion.cms.user.SanPham
             this.thirstImage.Text += @"<div class='product__thumb__pic set-bg' data-setbg='img/product/" + image3 + @"'> </div>";
             this.productName.Text = "";
             this.productName.Text += @"<h4>" +tensanpham+ " </h4>";
-            this.price.Text += @"<h3>"+giasanpham+"</h3>";
+        
             this.descript.Text=  dt.Rows[0]["mota"].ToString() ;
            dt = MaleFashion.App_Code.Database.SanPham.Lay_Size_San_Pham(sanphamID);
             this.fimage1.Text = @" <img src='img/product/" + image1 + "' alt=''>";
@@ -109,19 +109,7 @@ namespace MaleFashion.cms.user.SanPham
                 this.rating = "0";
             }
                 
-            this.coutRating.Text = @" <span>- "+this.cRating+" Reviews</span>";
-            float vote = float.Parse(rating);
-            this.displayStar.Text = "";
-            if (vote > 1) this.displayStar.Text += @" <i class='fa fa-star''></i>";
-            else this.displayStar.Text += @" <i class='fa fa-star-o''></i>";
-            if (vote > 2) this.displayStar.Text += @" <i class='fa fa-star''></i>";
-            else this.displayStar.Text += @" <i class='fa fa-star-o''></i>";
-            if (vote > 3) this.displayStar.Text += @" <i class='fa fa-star''></i>";
-            else this.displayStar.Text += @" <i class='fa fa-star-o''></i>";
-            if (vote > 4) this.displayStar.Text += @" <i class='fa fa-star''></i>";
-            else this.displayStar.Text += @" <i class='fa fa-star-o''></i>";
-            if (vote > 5) this.displayStar.Text += @" <i class='fa fa-star''></i>";
-            else this.displayStar.Text += @" <i class='fa fa-star-o''></i>";
+           
         }
 
         private void HienThiSaoVaSoBinhLuan()

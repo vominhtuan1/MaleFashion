@@ -74,14 +74,6 @@
                         <asp:Label ID="productName" runat="server" Text="Label"></asp:Label>
 
                         <div class="rating">
-                            <%--<i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>--%>
-                            <asp:Literal ID="displayStar" runat="server"></asp:Literal>
-                            <asp:Literal ID="coutRating" runat="server"></asp:Literal>
-                           <%-- <span>- 5 Reviews</span>--%>
                             <asp:Literal ID="ltrSaoDanhGia" runat="server"></asp:Literal>
                         </div>
 

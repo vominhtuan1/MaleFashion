@@ -37,11 +37,14 @@ namespace MaleFashion.App_Code.Database
             cmd.CommandType = CommandType.Text;
             return SQLDatabase.GetData(cmd);
         }
-        public static DataTable Lay_Danh_Gia( String sanphamID)
+        public static DataTable Lay_Danh_Gia(String sanphamID)
         {
             OleDbCommand cmd = new OleDbCommand("Lay_Danh_Gia");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", Int16.Parse(sanphamID));
+            return SQLDatabase.GetData(cmd);
+
+        }
         /// <summary>
         /// Hàm đếm số bình luận của 1 sản phẩm
         /// </summary>
