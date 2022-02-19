@@ -74,12 +74,14 @@
                         <asp:Label ID="productName" runat="server" Text="Label"></asp:Label>
                        <%-- <h4>Hooded thermal anorak</h4>--%>
                         <div class="rating">
+                            <%--<i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            <span>- 5 Reviews</span>
+                            <i class="fa fa-star-o"></i>--%>
+                            <asp:Literal ID="displayStar" runat="server"></asp:Literal>
+                            <asp:Literal ID="coutRating" runat="server"></asp:Literal>
+                           <%-- <span>- 5 Reviews</span>--%>
                         </div>
                        <%-- <h3>$270.00 <span>70.00</span></h3>--%>
                           <asp:Label ID="price" runat="server" Text="Label"></asp:Label>
@@ -106,7 +108,7 @@
                         <div class="product__details__cart__option">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" value="0">
                                 </div>
                             </div>
                             <a href="#" class="primary-btn">add to cart</a>
