@@ -145,5 +145,13 @@ namespace MaleFashion.App_Code.Database
             cmd.CommandType = CommandType.Text;
             return SQLDatabase.GetData(cmd);
         }
+        public static DataTable LayIDSanPham_ByIDChiTietSP(string chitetspID)
+        {
+            string sql = @"select p.sanphamID, p.giaban  from sanpham as p, chitietSP as q
+                    where p.sanphamID = q.sanphamID and q.chitietspID = " + chitetspID + "";
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            return SQLDatabase.GetData(cmd);
+        }
     }
 }

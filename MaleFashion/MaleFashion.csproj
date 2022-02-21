@@ -104,6 +104,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ajax\DangNhapDangKy.aspx" />
+    <Content Include="cms\user\SanPham\Ajax\SanPham.aspx" />
     <Content Include="cms\user\SanPham\ChiTietSanPham.ascx" />
     <Content Include="cms\user\SanPham\DanhSachCacSanPham.ascx" />
     <Content Include="cms\user\SanPham\GioHang.ascx" />
@@ -117,11 +119,13 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\elegant-icons.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\LoginCss.css" />
     <Content Include="css\magnific-popup.css" />
     <Content Include="css\nice-select.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\slicknav.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="DangNhap.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\ElegantIcons.svg" />
@@ -287,6 +291,7 @@
     <Content Include="js\jquery.nicescroll.min.js" />
     <Content Include="js\jquery.slicknav.js" />
     <Content Include="js\LetterAvatar.js" />
+    <Content Include="js\LoginScript.js" />
     <Content Include="js\main.js" />
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
@@ -300,9 +305,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ajax\DangNhapDangKy.aspx.cs">
+      <DependentUpon>DangNhapDangKy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\DangNhapDangKy.aspx.designer.cs">
+      <DependentUpon>DangNhapDangKy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Database\ChiTietDonHang.cs" />
+    <Compile Include="App_Code\Database\ChiTietSanPham.cs" />
     <Compile Include="App_Code\Database\DanhGia.cs" />
     <Compile Include="App_Code\Database\GiamGiaDonHang.cs" />
     <Compile Include="App_Code\Database\GiamGiaSP.cs" />
+    <Compile Include="App_Code\Database\GioHang.cs" />
     <Compile Include="App_Code\Database\HinhAnh.cs" />
     <Compile Include="App_Code\Database\HoaDon.cs" />
     <Compile Include="App_Code\Database\KhachHang.cs" />
@@ -310,6 +325,13 @@
     <Compile Include="App_Code\Database\SanPham.cs" />
     <Compile Include="App_Code\Database\SQLDatabase.cs" />
     <Compile Include="App_Code\FormatNumber.cs" />
+    <Compile Include="cms\user\SanPham\Ajax\SanPham.aspx.cs">
+      <DependentUpon>SanPham.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cms\user\SanPham\Ajax\SanPham.aspx.designer.cs">
+      <DependentUpon>SanPham.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cms\user\SanPham\ChiTietSanPham.ascx.cs">
       <DependentUpon>ChiTietSanPham.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -379,6 +401,13 @@
     </Compile>
     <Compile Include="cms\user\UserLoadControl.ascx.designer.cs">
       <DependentUpon>UserLoadControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DangNhap.aspx.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DangNhap.aspx.designer.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

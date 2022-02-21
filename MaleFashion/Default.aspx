@@ -132,9 +132,9 @@
                             <img src="img/icon/search.png" alt=""></a>
                         <a href="/Default.aspx?modul=TrangCaNhan">
                             <img src="img/icon/user.png" alt="Trang cá nhân"></a>
-                        <a href="#">
+                        <a href="/Default.aspx?modul=GioHang">
                             <img src="img/icon/cart.png" alt="">
-                            <span>0</span></a>
+                            <span></span></a>
                         <div class="price">$0.00</div>
                     </div>
                 </div>

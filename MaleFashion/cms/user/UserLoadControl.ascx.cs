@@ -38,6 +38,14 @@ namespace MaleFashion.cms.user
                     plLoadControl.Controls.Add(LoadControl("SanPham/ChiTietSanPham.ascx"));
                     break;
 
+                case "GioHang":
+                    plLoadControl.Controls.Add(LoadControl("SanPham/GioHang.ascx"));
+                    break;
+
+                case "ThanhToan":
+                    plLoadControl.Controls.Add(LoadControl("SanPham/ThanhToan.ascx"));
+                    break;
+
                 default:
                     plLoadControl.Controls.Add(LoadControl("TrangChu/TrangChuLoadControl.ascx"));
                     break;

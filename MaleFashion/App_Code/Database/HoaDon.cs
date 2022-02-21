@@ -79,10 +79,36 @@ namespace MaleFashion.App_Code.Database
         public static DataTable ThongTin_SanPham_CuaDonHang_ByIDHoaDon(string id)
         {
             string sql = @"
-                select q.sanphamID, p.giaSP, p.soluong from 
+                select q.sanphamID, p.giaSP, p.soluong, q.size from 
                 chitiethoadon as p, chitietSP as q 
                 where p.chitietspID = q.chitietspID and p.hoadonID = " + id + "";
 
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            return SQLDatabase.GetData(cmd);
+        }
+        public static void Tao_DonHang(string idKhachHang, string ngaythanhtoan, string std, string ghichu,
+            string diachi, string giamgiaID)
+        {
+            string sql = "";
+            if (giamgiaID != "")
+            {
+                sql = @"insert into hoadon (customerID, trangthai, ngaythanhtoan, std, ghichu, diachi, ptthanhtoan, giamgiaID)
+                        values (" + idKhachHang + @", N'Đang xử lý', '" + ngaythanhtoan + @"', '" + std + @"', N'" + ghichu + @"', N'" + diachi + "', N'COD', " + giamgiaID + " )";
+            }
+            else
+            {
+                sql = @"insert into hoadon (customerID, trangthai, ngaythanhtoan, std, ghichu, diachi, ptthanhtoan)
+                        values (" + idKhachHang + @", N'Đang xử lý', '" + ngaythanhtoan + @"', '" + std + @"', N'" + ghichu + @"', N'" + diachi + "', N'COD')";
+            }
+
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            SQLDatabase.ExecuteNoneQuery(cmd);
+        }
+        public static DataTable LayIDHoaDon(string idKhachHang, string time)
+        {
+            string sql = "select * from hoadon where customerID = " + idKhachHang + " and ngaythanhtoan = '" + time + "'";
             OleDbCommand cmd = new OleDbCommand(sql);
             cmd.CommandType = CommandType.Text;
             return SQLDatabase.GetData(cmd);
