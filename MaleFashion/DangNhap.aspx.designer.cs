@@ -7,38 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MaleFashion.cms.user.SanPham
+namespace MaleFashion
 {
 
 
-    public partial class GioHang
+    public partial class DangNhap
     {
 
         /// <summary>
-        /// ltrSanPham control.
+        /// tendangnhap control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrSanPham;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl tendangnhap;
 
         /// <summary>
-        /// ltrtongtien control.
+        /// matkhau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrtongtien;
-
-        /// <summary>
-        /// ltrthanhtien control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrthanhtien;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword matkhau;
     }
 }

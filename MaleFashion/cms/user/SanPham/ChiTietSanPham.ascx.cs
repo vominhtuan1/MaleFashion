@@ -20,6 +20,7 @@ namespace MaleFashion.cms.user.SanPham
         public string cRating = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Request.QueryString["idSanPham"] != null)
             {
                 sanphamID = Request.QueryString["idSanPham"];

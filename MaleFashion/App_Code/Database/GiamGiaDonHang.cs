@@ -16,5 +16,12 @@ namespace MaleFashion.App_Code.Database
             cmd.CommandType = CommandType.Text;
             return SQLDatabase.GetData(cmd);
         }
+        public static DataTable ThongTin_GiamGia_ChoDonHang_ByCode(string code)
+        {
+            string sql = @"select * from codegiamgia where code = '" + code + "'";
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            return SQLDatabase.GetData(cmd);
+        }
     }
 }

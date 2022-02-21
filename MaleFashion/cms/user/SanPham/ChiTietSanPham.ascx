@@ -91,7 +91,7 @@
                                     <input type="text" value="0">
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">add to cart</a>
+                            <a href="javascript:ThemVaoGioHang()" class="primary-btn">add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -145,3 +145,56 @@
 </section>
 <!-- Related Section End -->
 <script src="../../../js/LetterAvatar.js"></script>
+<script src="../../../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    var size = "";
+    $(document).ready(function () {
+        $("div.product__details__option__size label").each(function (i, obj) {
+            $(this).mousedown(function () {
+                size = $(this).text();
+            })
+        })
+        
+    });
+    
+    function GetQueryStringParams(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+    }
+
+    function ThemVaoGioHang() {
+        var idSP = GetQueryStringParams("idSanPham");
+        var qty = $("div.pro-qty").find("input").val();
+        if (size == "") {
+            alert("Vui lòng chọn size.");
+        }
+        if (qty == "0") {
+            alert("Vui lòng chọn số lượng.");
+        }
+        if (size != "" && qty != "0") {
+            $.post("cms/user/SanPham/Ajax/SanPham.aspx",
+                {
+                    "ThaoTac": "ThemVaoGioHang",
+                    "idSanPham": idSP,
+                    "qty": qty,
+                    "size": size
+                },
+                function (data, status) {
+                    if (data != "Chua dang nhap") {
+                        $("div.price").text(data + " sản phẩm");
+                        alert("Thêm sản phẩm vào giỏ hàng thành công.");
+
+                    } else {
+                        alert("Bạn phải đăng nhập trước khi thêm sản phẩm vào giỏ hàng.");
+                    }
+                }
+            );
+        }
+    }
+</script>

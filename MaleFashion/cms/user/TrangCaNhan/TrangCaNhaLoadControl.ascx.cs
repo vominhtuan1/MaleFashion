@@ -13,9 +13,12 @@ namespace MaleFashion.cms.user.TrangCaNhan
         private string idKhachHang = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["idKhachHang"] != null)
+            if (Session["IdKhachHang"] == null)
             {
-                idKhachHang = Request.QueryString["idKhachHang"];
+                Response.Redirect("/DangNhap.aspx");
+            } else
+            {
+                idKhachHang = Session["IdKhachHang"].ToString();
             }
             if (!IsPostBack)
             {

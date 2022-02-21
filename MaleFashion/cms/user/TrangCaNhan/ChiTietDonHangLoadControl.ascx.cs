@@ -91,6 +91,7 @@ namespace MaleFashion.cms.user.TrangCaNhan
                             </div>
                         </td>
                         <td class='cart__price'>" + dt.Rows[i]["soluong"] + @"</td>
+                        <td class='cart__price'>" + dt.Rows[i]["size"] + @"</td>
                         <td class='cart__price'>" +
                             MaleFashion.App_Code.FormatNumber.ConvertTonVietNamCurrency(int.Parse(dt.Rows[i]["giaSP"].ToString()) * int.Parse(dt.Rows[i]["soluong"].ToString()))
                             + @" đ</td> ";

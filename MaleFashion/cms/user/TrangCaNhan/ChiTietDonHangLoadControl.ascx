@@ -33,6 +33,7 @@
                                     <tr>
                                         <th>Sản phẩm</th>
                                         <th>Số lượng</th>
+                                        <th>Size</th>
                                         <th>Tổng</th>
                                         <asp:Literal ID="ltrCotDanhGia" runat="server"></asp:Literal>
                                     </tr>
