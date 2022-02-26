@@ -28,7 +28,7 @@
                             <p>Họ và Tên<span>*</span></p>
                             <asp:TextBox ID="tbxHoTen" runat="server" Style="margin-bottom: 0; color:#111111"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbxHoTen" ForeColor="red"
-                                SetFocusOnError="true" ErrorMessage="Địa chỉ không được bỏ trống"></asp:RequiredFieldValidator>
+                                SetFocusOnError="true" ErrorMessage="Tên không được bỏ trống"></asp:RequiredFieldValidator>
                         </div>
                         <div class="checkout__input">
                             <p>Địa chỉ<span>*</span></p>
@@ -61,21 +61,23 @@
         var ten = $("#UserLoadControl_ctl00_tbxHoTen").val();
         var sdt = $("#UserLoadControl_ctl00_tbxSoDienThoai").val();
         var diachi = $("#UserLoadControl_ctl00_tbxDiaChi").val();
-        $.post("cms/user/TrangCaNhan/Ajax/ThongTinCaNhan.aspx",
-            {
-                "ThaoTac": "LuuThongTinCaNhan",
-                "id": idKhachHang,
-                "ten": ten,
-                "sdt": sdt,
-                "diachi": diachi
-            },
-            function (data, status) {
-                if (data == "1") {
-                    alert("Cập nhập thông tin thành công")
-                } else {
-                    alert("Đã xảy ra lỗi. Vui lòng thử lại.")
+        if (ten != "" && sdt != "" && diachi != "") {
+            $.post("cms/user/TrangCaNhan/Ajax/ThongTinCaNhan.aspx",
+                {
+                    "ThaoTac": "LuuThongTinCaNhan",
+                    "id": idKhachHang,
+                    "ten": ten,
+                    "sdt": sdt,
+                    "diachi": diachi
+                },
+                function (data, status) {
+                    if (data == "1") {
+                        alert("Cập nhập thông tin thành công")
+                    } else {
+                        alert("Đã xảy ra lỗi. Vui lòng thử lại.")
+                    }
                 }
-            }
-        );
+            );
+        }
     }
 </script>
